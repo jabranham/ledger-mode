@@ -26,10 +26,6 @@
 ;; inspired by Martin Fowler's "Recurring Events for Calendars",
 ;; martinfowler.com/apsupp/recurring.pdf
 
-;; use (fset 'VARNAME (macro args)) to put the macro definition in the
-;; function slot of the symbol VARNAME.  Then use VARNAME as the
-;; function without have to use funcall.
-
 
 (require 'ledger-init)
 (require 'cl-lib)
@@ -147,13 +143,10 @@ For example every second Friday, regardless of month."
             (and (> ,target-day ,day1)
                  (< ,target-day ,day2))))))
 
-
-
 (defun ledger-schedule-scan-transactions (schedule-file)
   "Scan SCHEDULE-FILE and return a list of transactions with date predicates.
 The car of each item is a function of date that returns true if
 the transaction should be logged for that day."
-  (interactive "fFile name: ")
   (let ((xact-list (list)))
     (with-current-buffer
         (find-file-noselect schedule-file)
@@ -299,6 +292,7 @@ date descriptor."
       (ledger-mode))
     (length candidates)))
 
+;;;###autoload
 (defun ledger-schedule-upcoming (file look-backward look-forward)
   "Generate upcoming transactions.
 

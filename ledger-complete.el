@@ -28,8 +28,8 @@
 
 ;;; Code:
 (require 'ledger-context)
+(require 'ledger-init)
 (require 'ledger-xact)
-(require 'ledger-schedule)
 
 (defcustom ledger-accounts-file nil
   "The path to an optional file in which all accounts are used or declared.

@@ -51,7 +51,6 @@
 (require 'ledger-test)
 (require 'ledger-texi)
 (require 'ledger-xact)
-(require 'ledger-schedule)
 (require 'ledger-check)
 
 ;;; Code:
